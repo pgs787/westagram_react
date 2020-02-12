@@ -104,6 +104,7 @@
   white-space: pre-wrap;
   position: relative;
   font-weight: 100;
+  cursor: pointer;
 }
 
 .comment-list img {
@@ -167,4 +168,15 @@
   color: #95c8f8;
   opacity: 0.6;
   cursor: pointer;
+}
+
+
+
+.xbox {
+  position: absolute;
+  right: 20px;
+
+  &:hover {
+    background-color: rgb(209, 201, 201);
+  }
 }

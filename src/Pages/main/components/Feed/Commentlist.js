@@ -5,20 +5,32 @@ class Commentlist extends Component {
     const { onDelete } = this.props;
     onDelete(id);
   };
+  handlecheck = id => {
+    const { onDelete } = this.props;
+    onDelete(id);
+  };
+
   mapOfComment = data => {
     return data.map(info => (
       <div
         className="comment-list"
-        onClick={() => {
-          this.handlecheck(info.id);
-        }}
         key={info.id}
+        style={{ display: "flex", position: "relative" }}
       >
         <span style={{ fontWeight: "600" }}>gisung &nbsp;</span>
-        <span>{info.comment}</span>
+        <div className="comment_origin">{info.comment}</div>
+        <div
+          className="xbox"
+          onClick={() => {
+            this.handlecheck(info.id);
+          }}
+        >
+          ✖
+        </div>
       </div>
     ));
   };
+
   render() {
     const { data } = this.props;
     return (

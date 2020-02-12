@@ -9,8 +9,9 @@ class Feed extends React.Component {
   };
   handleCreate = data => {
     const { information } = this.state;
+    console.log(this.state);
     this.setState({
-      information: information.concat({ id: this.id++, ...data })
+      information: [...information, { id: this.id++, ...data }]
     });
   };
   handleDelete = id => {
@@ -19,8 +20,26 @@ class Feed extends React.Component {
       information: information.filter(info => info.id !== id)
     });
   };
+  handlecheck = id => {
+    const { onDelete } = this.props;
+    onDelete(id);
+  };
+  mapOfComment = data => {
+    return data.map(info => (
+      <div
+        className="comment-list"
+        onClick={() => {
+          this.handlecheck(info.id);
+        }}
+        key={info.id}
+      >
+        <span style={{ fontWeight: "600" }}>gisung &nbsp;</span>
+        <span>{info.comment}</span>
+      </div>
+    ));
+  };
   render() {
-    const { information, handleDelete } = this.state;
+    const { information } = this.state;
     return (
       <div className="feed-wrapper">
         <div className="feed-div">
