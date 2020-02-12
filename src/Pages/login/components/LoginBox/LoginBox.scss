@@ -1,0 +1,156 @@
+/*right*/
+.info {
+  margin-top: 80px;
+  width: 380px;
+  text-align: center;
+}
+
+.div-info {
+  height: 410px;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.div-info img {
+  display: flex;
+  width: 175px;
+  margin: 30px auto 45px;
+}
+
+.info-main-wrapper {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.info-main-input {
+  display: flex;
+  position: relative;
+  margin: 24px auto 5px;
+}
+
+.info-main-input:last-child {
+  margin-top: 5px;
+}
+
+.info-main-input input {
+  background: #fafafa;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  padding: 0px 10px;
+  width: 100%;
+  height: 38px;
+  font-size: 14px;
+}
+
+.info-main-input span {
+  cursor: text;
+  user-select: none;
+  width: 100%;
+  padding: 0px 10px;
+  font-size: 13px;
+  text-align: left;
+  line-height: 45px;
+  color: #999;
+  position: absolute;
+  margin-bottom: 5px;
+  line-height: 40px;
+}
+
+#id-ani,
+#pwd-ani {
+  transform-origin: top left;
+  transform: scale(0.7) translateY(-12px);
+  transition: transform 0.3s;
+}
+
+.login-btn {
+  background-color: rgba(var(--h5f, 56, 151, 240), 0.3);
+  border-style: none;
+  border-radius: 3px;
+  width: 100%;
+  height: 30px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.spe-line {
+  display: flex;
+  margin: 18px auto 28px;
+}
+
+.spe-line .line {
+  margin: auto auto;
+  width: 38%;
+  height: 1px;
+  background-color: #e6e6e6;
+}
+
+.login-fb {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.login-fb img {
+  margin: 0 7px 0px 0px;
+  width: 17px;
+}
+
+.fb-font {
+  margin: auto 0px;
+  color: #385185;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.lose-pwd {
+  text-align: center;
+  color: #385185;
+}
+
+/* 오른쪽 중앙 가입 div*/
+.div-sign {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  width: 100%;
+  padding: 25px 0;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 25px;
+}
+
+.div-sign .sign {
+  color: #3897f0;
+  font-weight: 600;
+}
+
+.down-icon {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.down-icon img {
+  width: 40%;
+  margin-right: 10px;
+}
+
+.down-icon img:hover {
+  cursor: pointer;
+}
+
+.down-icon img:nth-last-child(1) {
+  margin: 0;
+}
+
+.login-btn,
+.sign,
+.lose-pwd,
+.fb-font,
+.foot-left div .down-icon img:hover {
+  cursor: pointer;
+}

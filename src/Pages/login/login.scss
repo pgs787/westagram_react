@@ -1,0 +1,61 @@
+/* body */
+* {
+  box-sizing: border-box;
+}
+
+.total_wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+
+.div-total-section {
+  display: flex;
+  height: 750px;
+  margin-bottom: 50px;
+}
+
+
+
+/* 미디어쿼리 */
+@media screen and (max-width: 963px) {
+  .div-total-section {
+    margin: 0;
+  }
+
+  .main-div {
+    margin-top: 30px;
+  }
+
+  .login-img,
+  .mainImage {
+    display: none;
+  }
+
+  .foot-wrap {
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+    text-align: center;
+    display: block;
+  }
+
+  .foot-left {
+    font-size: 15px;
+    width: 650px;
+    display: inline-block;
+  }
+
+  .foot-left span {
+    margin: none;
+  }
+
+  .foot-right {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 15px;
+  }
+}

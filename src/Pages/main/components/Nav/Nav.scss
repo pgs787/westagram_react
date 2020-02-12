@@ -1,0 +1,47 @@
+/* 상단 Nav 바 */
+.nav-wrapper {
+  height: 80px;
+  background-color: white;
+  border-bottom: 1px solid #dbdbdb;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.nav-div {
+  display: flex;
+  justify-content: center;
+  padding: 26px 20px;
+  background-color: white;
+  max-width: 1010px;
+  width: 100%;
+  position: relative;
+}
+
+.nav-div img {
+  height: 30px;
+}
+
+.nav-div input {
+  border-radius: 3px;
+  background: #fafafa;
+  border: solid 1px #dbdbdb;
+  margin: 0 auto;
+  text-align: center;
+  width: 235px;
+  color: gray;
+  opacity: 0.5;
+}
+
+.nav-right-div {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.nav-right-div img {
+  height: 30px;
+  cursor: pointer;
+}
