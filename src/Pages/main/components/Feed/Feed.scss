@@ -42,8 +42,21 @@
   position: relative;
 }
 
+.feed-img {
+  border-left: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  border-right: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  background-color: white;
+  width: 100%;
+}
+
+.comment-re {
+  position: absolute;
+  width: 80%;
+}
+
 .feed-wrapper {
   float: left;
+
   width: 680px;
 }
 

@@ -11,14 +11,14 @@ class Input extends Component {
   };
   handleSubmit = e => {
     // 상태값을 onCreate 를 통하여 부모에게 전달
+
     this.props.onCreate(this.state);
-    console.log(this.state);
+    console.log(this.state.comment);
     // 상태 초기화
     this.setState({
       comment: ""
     });
   };
-
   render() {
     return (
       <div className="add-comment-div">

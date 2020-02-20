@@ -1,5 +1,6 @@
 import React from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import axios from "axios";
 import swal from "sweetalert";
 
 import "./LoginBox.scss";
@@ -7,8 +8,10 @@ import "./LoginBox.scss";
 class LoginBox extends React.Component {
   state = {
     id: "",
-    pwd: ""
+    pwd: "",
+    loginInfo: []
   };
+
   handleCheck = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -21,19 +24,61 @@ class LoginBox extends React.Component {
       this.input1.focus();
     }
   };
-  handleLoginSuc = async () => {
-    if (this.state.id === "park" && this.state.pwd === "1234") {
-      await swal("", "로그인에 성공하셨습니다", "success");
-      this.props.history.push("/main");
-    } else {
-      swal(
-        "",
-        "아이디와 비밀번호가 일치하지 않습니다. 다시 시도 해주세요",
-        "error"
-      );
-    }
+  handlesignIn = () => {
+    fetch("http://10.58.5.35:8000/account/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw
+      })
+    });
   };
+  handleLogin = () => {
+    fetch("http://10.58.5.35:8000/account/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pwd
+      })
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.Authorization) {
+          localStorage.setItem("token", response.Authorization);
+        }
+      })
+      .then(this.props.history.push("/main"));
+  };
+
+  handleLoginSuc = async () => {
+    await axios(
+      "https://pgs787.github.io/westagram_react_json/login.json"
+    ).then(res => {
+      if (
+        res.data[0].id === this.state.id &&
+        res.data[0].pwd === this.state.pwd
+      ) {
+        swal("", "로그인에 성공하셨습니다", "success");
+        this.props.history.push("/main");
+      } else {
+        swal(
+          "",
+          "아이디와 비밀번호가 일치하지 않습니다. 다시 시도 해주세요",
+          "error"
+        );
+      }
+    });
+  };
+
   render() {
+    console.log(this.state.loginInfo);
+
     return (
       <div className="info">
         <div className="div-info">
@@ -74,6 +119,7 @@ class LoginBox extends React.Component {
                     비밀번호
                   </span>
                 )}
+
                 <input
                   id="password"
                   name="pwd"
@@ -81,7 +127,7 @@ class LoginBox extends React.Component {
                   onInput={this.handleCheck}
                   onKeyPress={e => {
                     if (e.key === "Enter") {
-                      this.handleLoginSuc();
+                      this.handleLogin();
                     }
                   }}
                   ref={ref => (this.input1 = ref)}
@@ -96,7 +142,7 @@ class LoginBox extends React.Component {
                 backgroundColor:
                   this.state.id && this.state.pwd ? "#3897f0" : ""
               }}
-              onClick={this.handleLoginSuc}
+              onClick={this.handleLogin}
             >
               로그인
             </button>

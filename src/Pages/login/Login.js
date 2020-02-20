@@ -4,7 +4,6 @@ import LoginBox from "./components/LoginBox/LoginBox.js";
 import Footer from "./components/Footer/Footer.js";
 
 import "./login.scss";
-import "../common.scss";
 
 class Login extends React.Component {
   render() {

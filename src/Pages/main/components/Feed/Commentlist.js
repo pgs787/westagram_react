@@ -1,24 +1,39 @@
 import React, { Component } from "react";
 
 class Commentlist extends Component {
-  handlecheck = id => {
-    const { onDelete } = this.props;
-    onDelete(id);
+  state = {
+    id: 0,
+    editCheck: false
   };
   handlecheck = id => {
     const { onDelete } = this.props;
     onDelete(id);
   };
 
-  mapOfComment = data => {
+  mapOfComment = (data, dd) => {
     return data.map(info => (
       <div
         className="comment-list"
         key={info.id}
         style={{ display: "flex", position: "relative" }}
       >
-        <span style={{ fontWeight: "600" }}>gisung &nbsp;</span>
-        <div className="comment_origin">{info.comment}</div>
+        <span style={{ fontWeight: "600" }}>{dd.nick} &nbsp;</span>
+        <div
+          className="comment_origin"
+          onClick={() => {
+            this.handleEdit(info.id);
+          }}
+        >
+          {this.state.editCheck ? (
+            <input
+              className={`comment-re ${info.id}`}
+              type="text"
+              value={info.comment}
+            />
+          ) : (
+            info.comment
+          )}
+        </div>
         <div
           className="xbox"
           onClick={() => {
@@ -32,21 +47,16 @@ class Commentlist extends Component {
   };
 
   render() {
-    const { data } = this.props;
+    const { data, info } = this.props;
     return (
       <div className="comment-list-div">
         <div className="comment-list" style={{ whiteSpace: "unset" }}>
-          <a>gisung </a>
-          <span />
-          자주 보는 유튜브 채널 아리!
-        </div>
-        <div className="comment-list" style={{ whiteSpace: "unset" }}>
-          <a>gisung</a>
+          <a>{info.nick}</a>
           <span style={{ color: "#02386e" }} />
-          &nbsp; #아리둥절 #생긴거랑 다르게 놈 #겁나귀여움#똑똑한식빵
+          &nbsp; {info.comment}
           <br />
         </div>
-        {this.mapOfComment(data)}
+        {this.mapOfComment(data, info)}
       </div>
     );
   }
